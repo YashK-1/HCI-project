@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Competition Registration</title>
+</head>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff; /* Light Sky Blue */
+}
+
+.container {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff; /* White */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    color: #2e8b57; /* Sea Green */
+}
+
+input[type="text"],
+input[type="number"],
+select,
+button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #4caf50; /* Green */
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+#message {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #1e90ff; /* Dodger Blue */
+}
+</style>
+
+<body>
+    <div class="container">
+        <h2>Sports Competition Registration Form</h2>
+        <form id="registrationForm" action="/submit" method="post">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="first_name" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="last_name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" required>
+
+            <label for="sports">Select a Sport:</label>
+            <select id="sports" name="sport" required>
+                <option value="">Select</option>
+                <option value="badminton">Badminton</option>
+                <option value="football">Football</option>
+                <option value="tennis">Tennis</option>
+                <option value="basketball">Basketball</option>
+                <option value="tabletennis">Table Tennis</option>
+                <option value="athletics">Athletics</option>
+            </select>
+
+            <label for="date">Select Date of Birth:</label>
+            <input type="date" id="date" name="date_of_birth" required>
+
+            <button type="submit" onclick="alert('Registered successfully!')">Submit</button>
+            <button type="button" id="cancelButton">Cancel</button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Competition Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff; /* Light Sky Blue */
+        }
+
+        .container {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff; /* White */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            color: #2e8b57; /* Sea Green */
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #4caf50; /* Green */
+            color: white;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker Green */
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #1e90ff; /* Dodger Blue */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Sports Competition Registration Form</h2>
+        <form id="registrationForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" required>
+
+            <label for="sports">Select a Sport:</label>
+            <select id="sports" name="sports" required>
+                <option value="">Select</option>
+                <option value="badminton">Badminton</option>
+                <option value="football">Football</option>
+                <option value="tennis">Tennis</option>
+                <option value="basketball">Basketball</option>
+                <option value="tabletennis">Table Tennis</option>
+                <option value="athletics">Athletics</option>
+            </select>
+
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="submit" formaction="dates.html" onclick="alert('Registered successfully!')">Submit</button>
+            <button type="button" id="cancelButton">Cancel</button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            // Collect form data
+            const formData = {
+                firstName: document.getElementById("firstName").value,
+                lastName: document.getElementById("lastName").value,
+                age: document.getElementById("age").value,
+                sport: document.getElementById("sports").value,
+                date: document.getElementById("date").value
+            };
+            // Send data to the server
+            fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Registration successful, redirect to another page
+                        window.location.href = '/dates.html';
+                    } else {
+                        // Handle server-side errors here
+                        console.error('Registration failed');
+                    }
+                })
+                .catch(error => {
+                    // Handle network errors here
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+
+</html> -->

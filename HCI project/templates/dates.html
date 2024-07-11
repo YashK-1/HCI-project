@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Dates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #1e90ff;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+            background-color: #a5f082;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #cccccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1e90ff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ffffcc;
+        }
+        #downloadButton {
+            background-color: #51c754;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #downloadButton:hover {
+            background-color: #2a8a2f;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Competition Dates</h2>
+    <table border="1" id="table">
+        <thead>
+            <tr>
+                <th>Sr. No</th>
+                <th>Sport</th>
+                <th>Date of Competition</th>
+                <th>Venue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Badminton</td>
+                <td>2023-12-15</td>
+                <td>SVP Badminton court, Pune</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Football</td>
+                <td>2024-01-01</td>
+                <td>FC Pune Stadium</td>
+            </tr>            
+            <tr>
+                <td>3</td>
+                <td>Tennis</td>
+                <td>2024-01-12</td>
+                <td>Balewadi Stadium, Pune</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Table Tennis</td>
+                <td>2023-12-10</td>
+                <td>Table Tennis Stadium, Pune</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Athletics</td>
+                <td>2023-12-11</td>
+                <td>Balewadi Stadium, Pune</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Basketball</td>
+                <td>2024-01-02</td>
+                <td>PCCOE Basketball court, Pune</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="downloadButton">Download as Excel</button>
+
+    <script>
+        $(document).ready(function () {
+           $("#table").table2excel({
+               filename: "CompetitionDates.xlsx"
+           });
+        }); 
+    </script>
+    <!-- <script src="dates.js"></script> -->
+</body>
+</html>
